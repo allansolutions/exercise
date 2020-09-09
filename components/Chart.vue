@@ -10,7 +10,6 @@ Update chartDataConfig.datasets to contain one object whose property 'data' is a
 
 export default {
   extends: Line,
-  props: ['chartData'],
   data() {
     return {
       chartDataConfig: {
