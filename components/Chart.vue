@@ -3,13 +3,21 @@ import { Line } from 'vue-chartjs'
 
 export default {
   extends: Line,
+  props: {
+    yearValue: Array,
+    require: true,
+  },
   computed: {
     chartDataConfig() {
+      const array =  this.yearValue;
+
+      const labels = array.map(e=>e.label)
+      const data = array.map(e=>e.value)
       return {
-        labels: [],
+        labels,
         datasets: [
           {
-            data: [],
+            data,
           },
         ],
       }
@@ -20,6 +28,6 @@ export default {
   },
   mounted() {
     this.renderChart(this.chartDataConfig, this.options)
-  },
+  }
 }
 </script>
